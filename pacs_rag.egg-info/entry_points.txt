@@ -1,0 +1,2 @@
+[console_scripts]
+pacs-rag = pacs_rag.cli:main

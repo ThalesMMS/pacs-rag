@@ -1,0 +1,17 @@
+[project]
+name = "pacs-rag"
+version = "0.1.0"
+description = "Minimal PACS term index + retrieval for DICOM search rewriting"
+requires-python = ">=3.12"
+dependencies = ["pyyaml"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+mcp = ["mcp"]
+
+[project.scripts]
+pacs-rag = "pacs_rag.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"

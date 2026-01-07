@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: pacs-rag
+Version: 0.1.0
+Summary: Minimal PACS term index + retrieval for DICOM search rewriting
+Requires-Python: >=3.12
+Requires-Dist: pyyaml
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Provides-Extra: mcp
+Requires-Dist: mcp; extra == "mcp"

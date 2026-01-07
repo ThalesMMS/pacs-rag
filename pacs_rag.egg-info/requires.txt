@@ -1,0 +1,7 @@
+pyyaml
+
+[dev]
+pytest
+
+[mcp]
+mcp
