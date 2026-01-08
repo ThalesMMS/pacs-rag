@@ -40,7 +40,7 @@ def test_export_lexicon(tmp_path) -> None:
     embedder = HashEmbeddingProvider(dim=8)
     terms = [
         {"text": "MR fetal study", "level": "study", "modality": "MR", "count": 3},
-        {"text": "CT cranio", "level": "study", "modality": "CT", "count": 1},
+        {"text": "CT cranial", "level": "study", "modality": "CT", "count": 1},
     ]
 
     ingest_terms(str(index_path), terms, embedder)
@@ -65,5 +65,5 @@ def test_export_lexicon(tmp_path) -> None:
 
     loaded = yaml.safe_load(output_path.read_text(encoding="utf-8"))
     assert "MR fetal study" in loaded["synonyms"]
-    assert "CT cranio" not in loaded["synonyms"]
+    assert "CT cranial" not in loaded["synonyms"]
     assert any(item["text"] == "mr fetal" for item in loaded["ngrams"])

@@ -11,7 +11,7 @@ class FakeClient:
     async def query_studies(self, **kwargs):
         return [
             {"StudyDescription": "MR fetal study", "StudyDate": "20240101"},
-            {"StudyDescription": "CT cranio", "StudyDate": "20240102"},
+            {"StudyDescription": "CT cranial", "StudyDate": "20240102"},
         ]
 
     async def query_series(self, **kwargs):

@@ -53,7 +53,7 @@ pacs-rag ingest-mcp \
 ```bash
 pacs-rag retrieve \
   --index data/pacs_terms.sqlite \
-  --query "rm feto" \
+  --query "mr fetus" \
   --top-k 10 \
   --min-score 0.2
 ```
