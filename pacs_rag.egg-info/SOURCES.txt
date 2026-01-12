@@ -1,9 +1,11 @@
+README.md
 pyproject.toml
 pacs_rag/__init__.py
 pacs_rag/cli.py
 pacs_rag/embedder.py
 pacs_rag/index.py
 pacs_rag/ingest.py
+pacs_rag/lexicon.py
 pacs_rag/mcp_client.py
 pacs_rag/retrieve.py
 pacs_rag.egg-info/PKG-INFO
@@ -13,4 +15,5 @@ pacs_rag.egg-info/entry_points.txt
 pacs_rag.egg-info/requires.txt
 pacs_rag.egg-info/top_level.txt
 tests/test_ingest_mcp.py
+tests/test_mcp_client_retry.py
 tests/test_retrieve.py

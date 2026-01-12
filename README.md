@@ -41,7 +41,7 @@ pacs-rag ingest \
 ```bash
 pacs-rag ingest-mcp \
   --mcp-command dicom-mcp \
-  --config-path ../dicom-mcp/configuration.yaml \
+  --config-path ../configs/dicom.yaml \
   --index data/pacs_terms.sqlite \
   --study-date 20240101-20241231 \
   --max-studies 5000 \

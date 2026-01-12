@@ -15,6 +15,7 @@ def ingest_terms(
     embedder: EmbeddingProvider,
 ) -> None:
     entries = [term for term in terms if term.get("text")]
+    # Embed in one batch to keep vectors aligned with their source text.
     vectors = embedder.embed([term.get("text", "") for term in entries])
     index = SqliteIndex(index_path)
     index.upsert_terms(entries, vectors)
@@ -38,6 +39,7 @@ def ingest_from_mcp(
         studies = islice(studies, max_studies)
 
     terms: list[dict] = []
+    # Collect study/series text, then aggregate counts and recency before indexing.
     for study in studies:
         description = _safe_text(_get_attr(study, "StudyDescription"))
         modality = _normalize_modality(_get_attr(study, "ModalitiesInStudy"))
@@ -125,6 +127,7 @@ async def ingest_from_mcp_async(
 
 def _aggregate_terms(terms: list[dict]) -> list[dict]:
     aggregated: dict[tuple[str, str | None, str | None], dict] = {}
+    # Group by text/level/modality, summing counts and keeping the most recent date.
     for term in terms:
         text = term.get("text")
         if not text:
@@ -151,6 +154,7 @@ def _safe_text(value: object | None) -> str | None:
     text = str(value).strip()
     if not text:
         return None
+    # Heuristic PHI filter: drop caret-delimited names and long numeric tokens.
     if "^" in text:
         return None
     if re.search(r"\b\d{6,}\b", text):
